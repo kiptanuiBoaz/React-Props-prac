@@ -5,6 +5,7 @@ import Card from "./Card";
 function App(){
     return(
         <div>
+            <h1 className="heading">My Contacts</h1>
             {/* tap into the contacts js object and match it with the props of app */}
             <Card
                 name= {contacts[0].name}

@@ -3,6 +3,22 @@ import contacts from "./contacts";
 import Card from "./Card";
 import Avatar from "./Avatar";
 
+function creatCard(contacts){
+    return(
+        <Card
+            // each child in a list should have a unique key property
+            // key always has to be "key" in react can be string or number
+            // used to ensure things are rendered in the correct order
+            id={contacts.id}
+            key={contacts.id}
+            name={contacts.name}
+            imgURL={contacts.imgURL}
+            phone= {contacts.phone}
+            email= {contacts.email}
+        />
+    )
+};
+
 function App(){
     return(
         <div>
@@ -11,26 +27,10 @@ function App(){
                 imgURL="https://lh3.googleusercontent.com/a-/AOh14GgUv_yat73cCyMPwCVyhf9Ju-qFc2W0rKrf9yfdhQ=w60-h60"
             />
             {/* tap into the contacts js object and match it with the props of app */}
-            <Card
-                name= {contacts[0].name}
-                imgURL= {contacts[0].imgURL}
-                phone= {contacts[0].phone}
-                email= {contacts[0].email}
-            />
-        
-            <Card
-                name= {contacts[1].name}
-                imgURL={ contacts[1].imgURL}
-                phone={ contacts[1].phone}
-                email={ contacts[1].email}
-            />
-
-            <Card
-                name= {contacts[2].name}
-                imgURL= {contacts[2].imgURL}
-                phone={ contacts[2].phone}
-                email= {contacts[2].email}
-            />   
+            {/* call the map function */}
+            {/*  ?*loops through all the elements of contacts array and replicatees the html element Card for each */}
+            {contacts.map(creatCard)}
+           
         </div>
        
     );
